@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using _Scripts.Grid.Cells;
-using UnityEngine;
 using Zenject;
 
 namespace _Scripts.Grid
@@ -16,6 +16,11 @@ namespace _Scripts.Grid
             {
                 _cells.Add(new Cell(cell.transform));
             }
+        }
+
+        public ICell GetEmptyCell()
+        {
+            return _cells.First(cell => cell.IsEmpty());
         }
     }
 }
