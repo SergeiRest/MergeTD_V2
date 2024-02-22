@@ -3,8 +3,9 @@ using UnityEngine;
 
 namespace _Scripts.Grid.Cells
 {
-    public interface ICell
+    public interface ICell : ISelectable
     {
+        public ITower Child { get; }
         public Transform Transform { get; }
 
         public bool IsEmpty();

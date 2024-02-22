@@ -2,7 +2,7 @@
 
 namespace _Scripts.Towers
 {
-    public interface ITower
+    public interface ITower : IMoveable
     {
         public Transform Transform { get; }
     }

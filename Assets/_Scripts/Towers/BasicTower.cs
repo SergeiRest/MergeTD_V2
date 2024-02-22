@@ -2,7 +2,7 @@
 
 namespace _Scripts.Towers
 {
-    public class BasicTower : ITower
+    public class BasicTower : ITower, IMoveable
     {
         public BasicTower(Transform transform)
         {
@@ -10,5 +10,10 @@ namespace _Scripts.Towers
         }
         
         public Transform Transform { get; }
+        
+        public void Move(Vector3 pos)
+        {
+            Transform.position = pos;
+        }
     }
 }

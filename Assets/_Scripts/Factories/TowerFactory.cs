@@ -19,11 +19,13 @@ namespace _Scripts.Factories
             int random = Random.Range(0, available.Length);
 
             Tower selected = available[random];
-            ICell emptyCell = _grid.GetEmptyCell();
-            
-            TowerTemplate template = Object.Instantiate(selected.Prefab, emptyCell.Transform, true);
-            ITower tower = new BasicTower(template.transform);
-            emptyCell.SetChild(tower);
+            ICell emptyCell;
+            if (_grid.TryGetCell(out emptyCell))
+            {
+                TowerTemplate template = Object.Instantiate(selected.Prefab, emptyCell.Transform, true);
+                ITower tower = new BasicTower(template.transform);
+                emptyCell.SetChild(tower);
+            }
         }
     }
 }
